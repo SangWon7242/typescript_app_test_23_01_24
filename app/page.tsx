@@ -1,33 +1,24 @@
-"use client";
+'use client';
 
-import "./globals.css";
-import * as React from "react";
-import {
-  Tabs,
-  Tab,
-  Box,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-} from "@mui/material";
+import './globals.css';
+import * as React from 'react';
+import classNames from 'classnames';
 
 export default function App() {
   const [tab1CurrentIndex, setTab1CurrentIndex] = React.useState(0);
+  console.log(tab1CurrentIndex);
 
   return (
     <>
       <div className="site-wrap h-screen border-2 bg-[#cfcfcf]">
-        <div className="site-main-border border-2 border-black m-[30px] h-[90%] rounded-[30px] bg-white flex items-center justify-center">
-          <div className="site-sub-border border-2 border-dashed border-black m-[30px] h-[90%] rounded-[30px] w-full flex items-center justify-center">
+        <div className="site-main-border border-2 border-black m-[20px] h-[95%] rounded-[30px] bg-white flex items-center justify-center">
+          <div className="site-sub-border border-2 border-dashed border-black m-[30px] h-[95%] rounded-[30px] w-full flex items-center justify-center">
             <div className="site-background m-[20px] h-[95%] rounded-[30px] bg-[#62b1da] w-full">
               <div className="mini-home-page-wrap flex h-full">
                 <div className="home-page__left w-[25%] flex flex-col items-center">
                   <div className="left-page__head">
                     <div className="rounded-[10px] h-[50px] bg-white border-2 border-black w-[300px] flex items-center justify-center mt-[20px]">
-                      <span className="text-[1.7rem] pt-[5px]">
-                        OOO님의 미니홈피
-                      </span>
+                      <span className="text-[1.7rem] pt-[5px]">OOO님의 미니홈피</span>
                     </div>
                     <div className="rounded-[10px] h-[30px] bg-white border-2 border-black w-[300px] flex items-center justify-center mt-[5px] flex gap-x-2 pt-[3px]">
                       <span className="flex gap-x-2 items-center">
@@ -54,8 +45,7 @@ export default function App() {
                         <div className="side-info__intro-box w-[270px] h-[180px] border-y border-dotted border-black my-[15px]">
                           <div className="feel-today-box border-2 border-black w-full h-[35px] rounded-[5px] mt-[5px] flex items-center justify-center">
                             <span className="pt-[4px]">
-                              TODAY IS...{" "}
-                              <span className="text-red-500">❤</span> 파이팅!
+                              TODAY IS... <span className="text-red-500">❤</span> 파이팅!
                             </span>
                           </div>
                           <div className="greetings-box">
@@ -71,34 +61,55 @@ export default function App() {
                         <div className="side-info__anniversary-box">
                           <span>2024.02.19 Birth Date 🥂</span>
                         </div>
-                        <div className="side-info__surfing-box w-[270px]">
-                          <Tabs
-                            value={tab1CurrentIndex}
-                            onChange={(_, newValue) =>
-                              setTab1CurrentIndex(newValue)
-                            }
-                          >
-                            <Tab label="홈주인" />
-                            <Tab label="나" />
-                          </Tabs>
-                          {tab1CurrentIndex == 0 && (
-                            <Box className="w-full">
-                              <FormControl className="h-[40px] w-full">
-                                <InputLabel>일촌 파도타기</InputLabel>
-                                <Select
-                                  label="Age"
-                                  onChange={(e) => {
-                                    e.target.value;
-                                  }}
-                                >
-                                  <MenuItem value={10}>Ten</MenuItem>
-                                  <MenuItem value={20}>Twenty</MenuItem>
-                                  <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                              </FormControl>
-                            </Box>
-                          )}
-                          {tab1CurrentIndex == 1 && <div>내용2</div>}
+                        <div className="side-info__tap-box w-[270px]">
+                          <div className="tap-box__head flex">
+                            <div
+                              onClick={() => setTab1CurrentIndex(0)}
+                              className={classNames(
+                                'border-black border-2 border-b-0 rounded-[8px_8px_0_0] w-[70px] text-center',
+                                {
+                                  'bg-white border-b-[#fff] mb-[-1.35px]': tab1CurrentIndex === 0,
+                                  'bg-[#dfdfdf]': tab1CurrentIndex !== 0,
+                                },
+                              )}>
+                              <span>홈주인</span>
+                            </div>
+                            <div
+                              onClick={() => setTab1CurrentIndex(1)}
+                              className={classNames(
+                                'border-black border-2 border-b-0 rounded-[8px_8px_0_0] w-[60px] text-center ml-[-3.5px]',
+                                {
+                                  'bg-white border-b-[#fff] mb-[-1.35px]': tab1CurrentIndex === 1,
+                                  'bg-[#dfdfdf]': tab1CurrentIndex !== 1,
+                                },
+                              )}>
+                              <span>나</span>
+                            </div>
+                          </div>
+                          <div className="tap-box__body bg-white border-2 border-black rounded-[0_5px_5px_5px]">
+                            {tab1CurrentIndex == 0 && (
+                              <div className="select-box-1 w-full p-[3px]">
+                                <select
+                                  name="serfing"
+                                  className="w-full bg-[#dfdfdf] border-2 border-black rounded-[5px]">
+                                  <option>일촌 파도타기</option>
+                                  <option>배수연</option>
+                                  <option>라따뚜이</option>
+                                </select>
+                              </div>
+                            )}
+                            {tab1CurrentIndex == 1 && (
+                              <div className="select-box-2 w-full p-[3px]">
+                                <select
+                                  name="serfing"
+                                  className="w-full bg-[#dfdfdf] border-2 border-black rounded-[5px]">
+                                  <option>파도타기</option>
+                                  <option>배수연</option>
+                                  <option>라따뚜이</option>
+                                </select>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
