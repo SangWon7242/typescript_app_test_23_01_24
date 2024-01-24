@@ -6,7 +6,6 @@ import classNames from 'classnames';
 
 export default function App() {
   const [tab1CurrentIndex, setTab1CurrentIndex] = React.useState(0);
-  console.log(tab1CurrentIndex);
 
   return (
     <>
@@ -66,7 +65,7 @@ export default function App() {
                             <div
                               onClick={() => setTab1CurrentIndex(0)}
                               className={classNames(
-                                'border-black border-2 border-b-0 rounded-[8px_8px_0_0] w-[70px] text-center',
+                                'border-black border-2 border-b-0 rounded-[8px_8px_0_0] w-[70px] text-center cursor-pointer',
                                 {
                                   'bg-white border-b-[#fff] mb-[-1.35px]': tab1CurrentIndex === 0,
                                   'bg-[#dfdfdf]': tab1CurrentIndex !== 0,
@@ -77,7 +76,7 @@ export default function App() {
                             <div
                               onClick={() => setTab1CurrentIndex(1)}
                               className={classNames(
-                                'border-black border-2 border-b-0 rounded-[8px_8px_0_0] w-[60px] text-center ml-[-3.5px]',
+                                'border-black border-2 border-b-0 rounded-[8px_8px_0_0] w-[60px] text-center ml-[-3.5px] cursor-pointer',
                                 {
                                   'bg-white border-b-[#fff] mb-[-1.35px]': tab1CurrentIndex === 1,
                                   'bg-[#dfdfdf]': tab1CurrentIndex !== 1,
@@ -92,9 +91,12 @@ export default function App() {
                                 <select
                                   name="serfing"
                                   className="w-full bg-[#dfdfdf] border-2 border-black rounded-[5px]">
-                                  <option>일촌 파도타기</option>
+                                  <option selected disabled>
+                                    일촌 파도타기
+                                  </option>
                                   <option>배수연</option>
-                                  <option>라따뚜이</option>
+                                  <option>라따</option>
+                                  <option>뚜이</option>
                                 </select>
                               </div>
                             )}
@@ -103,9 +105,12 @@ export default function App() {
                                 <select
                                   name="serfing"
                                   className="w-full bg-[#dfdfdf] border-2 border-black rounded-[5px]">
-                                  <option>파도타기</option>
+                                  <option selected disabled>
+                                    파도타기
+                                  </option>
                                   <option>배수연</option>
-                                  <option>라따뚜이</option>
+                                  <option>라따</option>
+                                  <option>뚜이</option>
                                 </select>
                               </div>
                             )}
