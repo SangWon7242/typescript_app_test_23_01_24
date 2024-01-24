@@ -42,7 +42,7 @@ export default function App() {
                             alt="싸이월드 로고"
                           />
                         </div>
-                        <div className="side-info__intro-box w-[270px] h-[180px] border-y border-dotted border-black my-[15px]">
+                        <div className="side-info__intro-box w-[270px] h-[165px] border-y border-dotted border-black my-[15px]">
                           <div className="feel-today-box border-2 border-black w-full h-[35px] rounded-[5px] mt-[5px] flex items-center justify-center">
                             <span className="pt-[4px]">
                               TODAY IS... <span className="text-red-500">❤</span> 파이팅!
@@ -61,7 +61,7 @@ export default function App() {
                         <div className="side-info__anniversary-box">
                           <span>2024.02.19 Birth Date 🥂</span>
                         </div>
-                        <div className="side-info__tap-box w-[270px]">
+                        <div className="side-info__tap-box w-[270px] mt-[7px]">
                           <div className="tap-box__head flex">
                             <div
                               onClick={() => setTab1CurrentIndex(0)}
