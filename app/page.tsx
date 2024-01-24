@@ -3,6 +3,8 @@
 import './globals.css';
 import * as React from 'react';
 import classNames from 'classnames';
+import Image from 'next/image';
+import profileImg from '../public/images/cyworld.png';
 
 export default function App() {
   const [tab1CurrentIndex, setTab1CurrentIndex] = React.useState(0);
@@ -35,10 +37,10 @@ export default function App() {
                     <div className="side-info border-2 border-black rounded-[15px] bg-[#dfdfdf] h-[95%] w-[350px] mt-[5px] flex items-center justify-center">
                       <div className="side-info__content-box border-2 border-black rounded-[15px] bg-white h-[96%] m-[10px] w-full flex flex-col items-center">
                         <div className="side-info__profile-img-box w-[270px] h-[230px] border-2 border-black mt-[20px]">
-                          <img
+                          <Image
                             className="w-full h-full block object-contain"
-                            src="http://wiki.hash.kr/images/thumb/1/1e/%E3%88%9C%EC%8B%B8%EC%9D%B4%EC%9B%94%EB%93%9C_%EB%A1%9C%EA%B3%A0.png/200px-%E3%88%9C%EC%8B%B8%EC%9D%B4%EC%9B%94%EB%93%9C_%EB%A1%9C%EA%B3%A0.png"
-                            alt="싸이월드 로고"
+                            src={profileImg}
+                            alt="싸이월드로고"
                           />
                         </div>
                         <div className="side-info__intro-box w-[270px] h-[165px] border-y border-dotted border-black my-[15px]">

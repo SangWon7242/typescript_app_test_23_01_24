@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "타입스크립트 테스트",
-  description: "타입스크립트를 테스트 합니다.",
+  title: "상원's 미니홈피",
+  description: '타입스크립트를 테스트 합니다.',
 };
 
 export default function RootLayout({
