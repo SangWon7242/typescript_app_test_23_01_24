@@ -34,7 +34,7 @@ export default function App() {
                   </div>
                   <div className="left-page__body flex-grow">
                     <div className="side-info border-2 border-black rounded-[15px] bg-[#dfdfdf] h-[95%] w-[350px] mt-[5px] flex items-center justify-center">
-                      <div className="side-info__content-box border-2 border-black rounded-[15px] bg-white h-[95%] m-[10px] w-full flex flex-col items-center">
+                      <div className="side-info__content-box border-2 border-black rounded-[15px] bg-white h-[96%] m-[10px] w-full flex flex-col items-center">
                         <div className="side-info__profile-img-box w-[270px] h-[230px] border-2 border-black mt-[20px]">
                           <img
                             className="w-full h-full block object-contain"
