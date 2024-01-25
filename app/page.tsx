@@ -16,7 +16,7 @@ export default function App() {
           <div className="site-sub-border border-2 border-dashed border-black m-[30px] h-[95%] rounded-[30px] w-full flex items-center justify-center">
             <div className="site-background m-[20px] h-[95%] rounded-[30px] bg-[#62b1da] w-full">
               <div className="mini-home-page-wrap flex h-full">
-                <div className="home-page__left w-[25%] flex flex-col items-center">
+                <div className="home-page__left flex flex-col items-center mx-[30px] flex-shirink-0">
                   <div className="left-page__head">
                     <div className="rounded-[10px] h-[50px] bg-white border-2 border-black w-[300px] flex items-center justify-center mt-[20px]">
                       <span className="text-[1.7rem] pt-[5px]">OOO님의 미니홈피</span>
@@ -122,7 +122,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="home-page__right flex-grow">
+                <div className="home-page__right flex-grow bg-green-300">
                   <div className="right-page__head"></div>
                   <div className="right-page__body"></div>
                 </div>
