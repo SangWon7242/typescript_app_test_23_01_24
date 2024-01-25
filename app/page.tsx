@@ -8,6 +8,15 @@ import profileImg from '../public/images/cyworld.png';
 
 export default function App() {
   const [tab1CurrentIndex, setTab1CurrentIndex] = React.useState(0);
+  const [tab2CurrentIndex, setTab2CurrentIndex] = React.useState(0);
+
+  const TapContentBoxMenuStyle = ({ children }: any) => {
+    return (
+      <a className="bg-white p-3 block border-2 border-black border-l-transparent rounded-[0_10px_10px_0] cursor-pointer">
+        {children}
+      </a>
+    );
+  };
 
   return (
     <>
@@ -122,9 +131,39 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="home-page__right flex-grow bg-green-300">
-                  <div className="right-page__head"></div>
-                  <div className="right-page__body"></div>
+                <div className="home-page__right flex-grow bg-green-300 flex flex-col">
+                  <div className="right-page__head h-[105px]"></div>
+                  <div className="right-page__body flex-grow">
+                    <div className="border-2 border-black rounded-[15px] bg-white h-[95%] w-[90%] mt-[5px] flex items-center justify-center">
+                      <div className="tap-content-box border-2 border-red-300 h-[90%] w-full flex flex-row-reverse mr-[-12%]">
+                        <div className="tap-content-box__side-menu">
+                          <ul className="flex flex-col gap-y-1">
+                            <li>
+                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(0)}>
+                                <span className="flex justify-center">홈</span>
+                              </TapContentBoxMenuStyle>
+                            </li>
+                            <li>
+                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(1)}>
+                                <span className="flex justify-center">프로필</span>
+                              </TapContentBoxMenuStyle>
+                            </li>
+                            <li>
+                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(2)}>
+                                <span className="flex justify-center">다이어리</span>
+                              </TapContentBoxMenuStyle>
+                            </li>
+                            <li>
+                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(3)}>
+                                <span className="flex justify-center">방명록</span>
+                              </TapContentBoxMenuStyle>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="tap-content-box__main-content"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
