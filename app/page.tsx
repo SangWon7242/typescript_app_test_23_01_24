@@ -5,18 +5,55 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import profileImg from '../public/images/cyworld.png';
+import styled from 'styled-components';
+
+type TabItemProps = {
+  // index: number;
+  name: string;
+  isActive: boolean;
+};
+
+const TabListItemText = styled.a<TabItemProps>`
+  display: block;
+  background-color: ${(props) => (props.isActive ? '#62b1da' : 'white')};
+  padding: 10px;
+  border: 2px solid black;
+  border-left-color: transparent;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+`;
+
+const tabs = [
+  { index: 1, name: '홈' },
+  { index: 2, name: '프로필' },
+  { index: 3, name: '다이어리' },
+  { index: 4, name: '방명록' },
+];
+
+const TabMenu = () => {
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  return (
+    <ul className="flex flex-col gap-y-1">
+      {tabs.map((tab, index) => (
+        <li key={tab.index} onClick={() => setActiveTab(index)}>
+          <TabPanel name={tab.name} isActive={index === activeTab} />
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const TabPanel = ({ name, isActive }: TabItemProps) => {
+  return (
+    <TabListItemText isActive={isActive}>
+      <span className="flex justify-center">{name}</span>
+    </TabListItemText>
+  );
+};
 
 export default function App() {
   const [tab1CurrentIndex, setTab1CurrentIndex] = React.useState(0);
-  const [tab2CurrentIndex, setTab2CurrentIndex] = React.useState(0);
-
-  const TapContentBoxMenuStyle = ({ children }: any) => {
-    return (
-      <a className="bg-white p-3 block border-2 border-black border-l-transparent rounded-[0_10px_10px_0] cursor-pointer">
-        {children}
-      </a>
-    );
-  };
 
   return (
     <>
@@ -131,34 +168,13 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="home-page__right flex-grow bg-green-300 flex flex-col">
+                <div className="home-page__right flex-grow flex flex-col">
                   <div className="right-page__head h-[105px]"></div>
                   <div className="right-page__body flex-grow">
                     <div className="border-2 border-black rounded-[15px] bg-white h-[95%] w-[90%] mt-[5px] flex items-center justify-center">
                       <div className="tap-content-box border-2 border-red-300 h-[90%] w-full flex flex-row-reverse mr-[-12%]">
                         <div className="tap-content-box__side-menu">
-                          <ul className="flex flex-col gap-y-1">
-                            <li>
-                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(0)}>
-                                <span className="flex justify-center">홈</span>
-                              </TapContentBoxMenuStyle>
-                            </li>
-                            <li>
-                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(1)}>
-                                <span className="flex justify-center">프로필</span>
-                              </TapContentBoxMenuStyle>
-                            </li>
-                            <li>
-                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(2)}>
-                                <span className="flex justify-center">다이어리</span>
-                              </TapContentBoxMenuStyle>
-                            </li>
-                            <li>
-                              <TapContentBoxMenuStyle onClick={() => setTab2CurrentIndex(3)}>
-                                <span className="flex justify-center">방명록</span>
-                              </TapContentBoxMenuStyle>
-                            </li>
-                          </ul>
+                          <TabMenu />
                         </div>
                         <div className="tap-content-box__main-content"></div>
                       </div>
