@@ -8,8 +8,7 @@ import profileImg from '../public/images/cyworld.png';
 import styled from 'styled-components';
 
 type TabItemProps = {
-  // index: number;
-  name: string;
+  children?: React.ReactNode;
   isActive: boolean;
 };
 
@@ -37,17 +36,17 @@ const TabMenu = () => {
     <ul className="flex flex-col gap-y-1">
       {tabs.map((tab, index) => (
         <li key={tab.index} onClick={() => setActiveTab(index)}>
-          <TabPanel name={tab.name} isActive={index === activeTab} />
+          <TabPanel children={tab.name} isActive={index === activeTab} />
         </li>
       ))}
     </ul>
   );
 };
 
-const TabPanel = ({ name, isActive }: TabItemProps) => {
+const TabPanel = ({ children, isActive }: TabItemProps) => {
   return (
     <TabListItemText isActive={isActive}>
-      <span className="flex justify-center">{name}</span>
+      <span className="flex justify-center">{children}</span>
     </TabListItemText>
   );
 };
