@@ -7,6 +7,12 @@ import Image from 'next/image';
 import profileImg from '../public/images/cyworld.png';
 import styled from 'styled-components';
 
+interface TabViewProps {
+  index: number;
+  name: string;
+  content: JSX.Element;
+}
+
 type TabItemProps = {
   children?: React.ReactNode;
   isActive: boolean;
@@ -50,6 +56,18 @@ const TabPanel = ({ children, isActive }: TabItemProps) => {
     </TabListItemText>
   );
 };
+
+const HomeContent = () => <div>홈 콘텐츠</div>;
+const ProfileContent = () => <div>프로필 콘텐츠</div>;
+const DiaryContent = () => <div>다이어리 콘텐츠</div>;
+const GuestbookContent = () => <div>방명록 콘텐츠</div>;
+
+const tabContents = [
+  { index: 1, name: '홈', content: <HomeContent /> },
+  { index: 2, name: '프로필', content: <ProfileContent /> },
+  { index: 3, name: '다이어리', content: <DiaryContent /> },
+  { index: 4, name: '방명록', content: <GuestbookContent /> },
+];
 
 export default function App() {
   const [tab1CurrentIndex, setTab1CurrentIndex] = React.useState(0);
@@ -175,7 +193,9 @@ export default function App() {
                         <div className="tap-content-box__side-menu">
                           <TabMenu />
                         </div>
-                        <div className="tap-content-box__main-content"></div>
+                        <div className="tap-content-box__main-content">
+                          {tabs[activeTab].content}
+                        </div>
                       </div>
                     </div>
                   </div>
